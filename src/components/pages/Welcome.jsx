@@ -1,4 +1,21 @@
 export default function Welcome() {
+
+	const [movies, setMovies] = useState([])
+
+	useEffect(() =>{
+        const getMovies = async () => {
+            try{
+                const response = await axios.get(``)
+                // console.log(response.data)
+                setMovies(response.data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getMovies()
+    },[])
+
+
 	return (
 		<div>
 			<h1>OMDB Movie Search</h1>
@@ -12,4 +29,4 @@ export default function Welcome() {
 			</form>
 		</div>
 	)
-}
+} 
